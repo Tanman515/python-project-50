@@ -1,0 +1,4 @@
+.venv/
+gendiff/__pycache__/
+gendiff/scripts/__pycache__/
+dist/
