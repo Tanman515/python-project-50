@@ -28,7 +28,7 @@ def find_diff(path1, path2):
         if key not in [key[2:] for key in diff.keys()]:
             key = '+ ' + key
             diff[key] = value
-    return dict(sorted(diff.items(), key=lambda tuple:tuple[0][2]))
+    return dict(sorted(diff.items(), key=lambda tuple: tuple[0][2]))
 
 
 def get_json(diff):
@@ -42,11 +42,7 @@ def get_json(diff):
     return result
 
 
-def generate_diff(file_path1=None, file_path2=None):
-    if file_path1 == None and file_path2 == None:
-        args = get_args()
-        file_path1 = args.first_file
-        file_path2 = args.second_file
+def generate_diff(file_path1, file_path2):
     diff = find_diff(file_path1, file_path2)
     json = get_json(diff)
     return json
