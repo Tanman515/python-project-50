@@ -1,0 +1,7 @@
+{
+    host: hexlet.io
+  + import: false
+  - timeout: 20
+  + timeout: 60
+  - verbose: true
+}
