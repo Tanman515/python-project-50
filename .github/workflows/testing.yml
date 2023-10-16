@@ -1,0 +1,12 @@
+name: Testing
+run-name: ${{ github.actor }} is testing out GitHub Actions
+on: [push]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - run: make lint
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: poetry run pytest
