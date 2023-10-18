@@ -7,6 +7,6 @@ def read_txt(path):
 
 
 def test_gendiff_plane():
-    assert generate_diff('tests/fixtures/file1.json', 'tests/fixtures/file2.json') == read_txt('tests/fixtures/expected1.txt') #noqa
-    assert generate_diff('tests/fixtures/file2.json', 'tests/fixtures/file3.json') == read_txt('tests/fixtures/expected2.txt') #noqa
-    assert generate_diff('tests/fixtures/file1.json', 'tests/fixtures/file3.json') == read_txt('tests/fixtures/expected3.txt') #noqa
+    assert generate_diff('tests/fixtures/file1.json', 'tests/fixtures/file2.json') == read_txt('tests/fixtures/expected1.txt')  #noqa
+    assert generate_diff('tests/fixtures/file2.json', 'tests/fixtures/file3.json') == read_txt('tests/fixtures/expected2.txt')  #noqa
+    assert generate_diff('tests/fixtures/file1.json', 'tests/fixtures/file3.json') == read_txt('tests/fixtures/expected3.txt')  #noqa
