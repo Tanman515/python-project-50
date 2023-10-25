@@ -1,1 +1,1 @@
-from .gendiff import * # noqa
+from .gendiff import *  # noqa
