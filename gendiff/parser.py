@@ -1,20 +1,40 @@
-def parse(data1, data2):
-    diff = {}
-    for key, value in data1.items():
-        if value == data2.get(key) and key in data2.keys():
-            key = '  ' + key
-            diff[key] = value
-        elif value != data2.get(key) and key in data2.keys():
-            key1 = '- ' + key
-            key2 = '+ ' + key
-            value2 = data2.get(key)
-            diff[key1] = value
-            diff[key2] = value2
+def sort(dictionary):
+    return dict(sorted(dictionary.items(), key=lambda item: item[0][1:]))
+
+
+def add_spaces(d):
+    result = {}
+    for key, value in d.items():
+        if key[0] not in ('+', '-', ' '):
+            key = f'  {key}'
+        if isinstance(value, dict):
+            result[key] = add_spaces(value)
         else:
-            key = '- ' + key
-            diff[key] = value
+            result[key] = value
+    return result
+
+
+def parse(data1, data2): # noqa C901
+    result = {}
     for key, value in data2.items():
-        if key not in [key[2:] for key in diff.keys()]:
-            key = '+ ' + key
-            diff[key] = value
-    return dict(sorted(diff.items(), key=lambda tuple: tuple[0][2]))
+        if key not in data1:
+            result[f'+ {key}'] = value
+
+    for key, value in data1.items():
+        if key not in data2.keys():
+            result[f'- {key}'] = value
+            continue
+
+        if not isinstance(value, dict):
+            if value == data2.get(key):
+                result[f'  {key}'] = value
+            else:
+                result[f'- {key}'] = value
+                result[f'+ {key}'] = data2.get(key)
+        else:
+            if isinstance(data2.get(key), dict):
+                result[f'  {key}'] = parse(value, data2.get(key))
+            else:
+                result[f'- {key}'] = value
+                result[f'+ {key}'] = data2.get(key)
+    return add_spaces(sort(result))

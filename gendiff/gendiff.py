@@ -1,11 +1,11 @@
-from gendiff import reader
-from gendiff import to_json
-from gendiff import parser
+from gendiff.reader import read
+from gendiff.parser import parse
+from gendiff.formatter import stylish
 
 
-def generate_diff(file_path1, file_path2):
-    data1 = reader.read(file_path1)
-    data2 = reader.read(file_path2)
-    diff = parser.parse(data1, data2)
-    json = to_json.make_json(diff)
-    return json
+def generate_diff(file_path1, file_path2, formatter=stylish):
+    data1 = read(file_path1)
+    data2 = read(file_path2)
+    diff = parse(data1, data2)
+    format = formatter(diff)
+    return format
