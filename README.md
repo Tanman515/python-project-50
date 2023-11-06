@@ -6,4 +6,7 @@
 
 
 asciinema - https://asciinema.org/a/Pb7bQ0NRGvr3ohkZiMuNflaC1
+
 asciinema 2 - https://asciinema.org/a/q4BfVQBcIG6ON9Qx2z948ArLN
+
+asciiname 3 - https://asciinema.org/a/SdZzwceEUVVB4hHCgDaHIEoM3
