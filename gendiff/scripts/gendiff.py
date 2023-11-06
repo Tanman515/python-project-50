@@ -7,6 +7,8 @@ def main():
     args = get_args()
     if args.format == 'stylish':
         style = stylish
+    else:
+        style = stylish
     diff = generate_diff(args.first_file, args.second_file, style)
     print(diff)
 
