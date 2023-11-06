@@ -25,3 +25,4 @@ def test_gendiff_with_inner_yaml():
     assert generate_diff(f'{schema}file1_inner.yaml', f'{schema}file2_inner.yaml') == read_txt(f'{schema}expected4.txt')
 
 
+
