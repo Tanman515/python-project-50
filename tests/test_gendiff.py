@@ -18,11 +18,11 @@ def test_gendiff_yaml():
 
 
 def test_gendiff_with_inner_json():
-    assert generate_diff(f'{schema}file1_inner.json', f'{schema}file2_inner.json') == read_txt(f'{schema}expected4.txt')
+    assert generate_diff(f'{schema}file1_inner.json', f'{schema}file2_inner.json') == read_txt(f'{schema}expected2.txt')
 
 
 def test_gendiff_with_inner_yaml():
-    assert generate_diff(f'{schema}file1_inner.yaml', f'{schema}file2_inner.yaml') == read_txt(f'{schema}expected4.txt')
+    assert generate_diff(f'{schema}file1_inner.yaml', f'{schema}file2_inner.yaml') == read_txt(f'{schema}expected2.txt')
 
 
 
