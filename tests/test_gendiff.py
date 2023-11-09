@@ -9,20 +9,35 @@ def read_txt(path):
 schema = 'tests/fixtures/'
 
 
-def test_gendiff_json():
+def test_json():
     assert generate_diff(f'{schema}file1.json', f'{schema}file2.json') == read_txt(f'{schema}expected1.txt')
 
 
-def test_gendiff_yaml():
+def test_yaml():
     assert generate_diff(f'{schema}file1.yaml', f'{schema}file2.yaml') == read_txt(f'{schema}expected1.txt')
 
 
-def test_gendiff_with_inner_json():
+def test_with_inner_json():
     assert generate_diff(f'{schema}file1_inner.json', f'{schema}file2_inner.json') == read_txt(f'{schema}expected2.txt')
 
 
-def test_gendiff_with_inner_yaml():
+def test_with_inner_yaml():
     assert generate_diff(f'{schema}file1_inner.yaml', f'{schema}file2_inner.yaml') == read_txt(f'{schema}expected2.txt')
 
+
+def test_json_plain():
+    assert generate_diff(f'{schema}file1.json', f'{schema}file2.json', 'plain') == read_txt(f'{schema}expected3.txt')
+
+
+def test_yaml_plain():
+    assert generate_diff(f'{schema}file1.yaml', f'{schema}file2.yaml', 'plain') == read_txt(f'{schema}expected3.txt')
+
+
+def test_with_inner_json_plain():
+    assert generate_diff(f'{schema}file1_inner.json', f'{schema}file2_inner.json', 'plain') == read_txt(f'{schema}expected4.txt')
+
+
+def test_with_inner_yaml_plain():
+    assert generate_diff(f'{schema}file1_inner.yaml', f'{schema}file2_inner.yaml', 'plain') == read_txt(f'{schema}expected4.txt')
 
 
