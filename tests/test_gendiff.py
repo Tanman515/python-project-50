@@ -41,3 +41,5 @@ def test_with_inner_yaml_plain():
     assert generate_diff(f'{schema}file1_inner.yaml', f'{schema}file2_inner.yaml', 'plain') == read_txt(f'{schema}expected4.txt')
 
 
+def test_json_style():
+    assert generate_diff(f'{schema}file1_inner.json', f'{schema}file2_inner.json', 'json') == read_txt(f'{schema}expected5.txt')
