@@ -7,8 +7,8 @@ def make_comfort(d):
     keys = list(d.keys())
     while i < len(d):
         if keys[i][0] == '-' and i < len(d) - 1:
-            if keys[i][1:] == keys[i+1][1:]:
-                value = (d[keys[i]], d[keys[i+1]])
+            if keys[i][1:] == keys[i + 1][1:]:
+                value = (d[keys[i]], d[keys[i + 1]])
                 result[f'-+{keys[i][2:]}'] = value
                 i += 2
             else:

@@ -10,7 +10,7 @@ def stylish(value, replacer=' ', indent=2):
         middle_values = []
         for key, value in node.items():
             if isinstance(value, dict):
-                value = walk(value, counter+2)
+                value = walk(value, counter + 2)
             elif not isinstance(value, str):
                 value = json.JSONEncoder().encode(value)
             middle_values.append(f'{replacer_value}{key}: {value}')
