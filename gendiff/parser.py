@@ -2,13 +2,9 @@ import json
 import yaml
 
 
-def parse(data1, data2, type): # noqa
+def parse(data, type):
     if type == 'json':
-        data1 = json.loads(data1)
-        data2 = json.loads(data2)
+        data = json.loads(data)
     elif type == 'yaml':
-        data1 = yaml.load(data1, Loader=yaml.FullLoader)
-        data2 = yaml.load(data2, Loader=yaml.FullLoader)
-    else:
-        pass
-    return data1, data2
+        data = yaml.load(data, Loader=yaml.FullLoader)
+    return data
